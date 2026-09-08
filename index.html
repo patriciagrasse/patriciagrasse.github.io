@@ -56,24 +56,57 @@
     }
     .field-timeline dt { color: #007d8a; font-weight: 700; }
     .field-timeline dd { margin: 0; }
-    .field-photo-placeholders {
+    .field-gallery {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 175px;
       gap: 14px;
       margin-top: 38px;
     }
-    .field-photo-placeholders div {
-      min-height: 180px;
-      display: grid;
-      place-items: center;
-      padding: 20px;
+    .field-gallery-title {
+      margin: 38px 0 -18px;
+      font: 700 1.15rem/1.3 Arial, sans-serif;
+      color: #18383f;
+    }
+    .field-gallery + .field-gallery-title { margin-top: 48px; }
+    .mesocosm-gallery { grid-auto-rows: 190px; }
+    .mesocosm-gallery .wide,
+    .ria-gallery .wide { grid-column: span 2; }
+    .field-gallery figure {
+      position: relative;
+      min-width: 0;
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
       background: #dce8e6;
-      color: #56707a;
-      text-align: center;
+    }
+    .field-gallery .portrait { grid-row: span 2; }
+    .field-gallery a,
+    .field-gallery img { display: block; width: 100%; height: 100%; }
+    .field-gallery img {
+      object-fit: cover;
+      transition: transform .25s ease;
+    }
+    .field-gallery a:hover img,
+    .field-gallery a:focus-visible img { transform: scale(1.025); }
+    .field-gallery figcaption {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 24px 12px 10px;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(8, 28, 34, .82));
+      font-size: .82rem;
+      line-height: 1.25;
+      pointer-events: none;
     }
     @media (max-width: 520px) {
       .field-timeline > div { grid-template-columns: 1fr; gap: 4px; }
-      .field-photo-placeholders { grid-template-columns: 1fr; }
+      .field-gallery { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+      .field-gallery .portrait { grid-row: auto; height: 390px; }
+      .mesocosm-gallery .wide,
+      .ria-gallery .wide { grid-column: auto; }
     }
     #navigation a {
       position: relative;
@@ -257,11 +290,134 @@
           <div><dt>Dec 2008–Jan 2009</dt><dd>R/V <i>Meteor</i> cruise M77/3, Guayaquil, Ecuador to Callao, Peru</dd></div>
           <div><dt>Jan–Mar 2007</dt><dd>Field work at La Selva Biological Station, Costa Rica</dd></div>
         </dl>
-        <div class="field-photo-placeholders" aria-label="Placeholders for future fieldwork photographs">
-          <div>Ria Formosa saltmarsh photo</div>
-          <div>Peru mesocosm photo</div>
-          <div>R/V Meteor photo</div>
-          <div>La Selva rainforest photo</div>
+        <h3 class="field-gallery-title">Ria Formosa Coastal Lagoon, Portugal</h3>
+        <div class="field-gallery ria-gallery" aria-label="Photographs from RECAP field work in the Ria Formosa Coastal Lagoon">
+          <figure class="portrait">
+            <a href="assets/ria-formosa-saltmarsh-channel.jpg" target="_blank" aria-label="Open full photograph of the Ria Formosa saltmarsh">
+              <img src="assets/ria-formosa-saltmarsh-channel.jpg" alt="Tidal channel crossing a saltmarsh in the Ria Formosa Coastal Lagoon" loading="lazy">
+            </a>
+            <figcaption>Saltmarsh and tidal channel in Ria Formosa</figcaption>
+          </figure>
+          <figure class="wide">
+            <a href="assets/ria-formosa-fieldwork.jpg" target="_blank" aria-label="Open full photograph of Patricia Grasse during Ria Formosa field work">
+              <img src="assets/ria-formosa-fieldwork.jpg" alt="Patricia Grasse during intertidal field work in the Ria Formosa Coastal Lagoon" loading="lazy">
+            </a>
+            <figcaption>RECAP field work in the intertidal environment</figcaption>
+          </figure>
+          <figure>
+            <a href="assets/ria-formosa-lagoon.jpg" target="_blank" aria-label="Open full photograph of the Ria Formosa lagoon and saltmarsh">
+              <img src="assets/ria-formosa-lagoon.jpg" alt="Wide view across the lagoon and saltmarsh at Ria Formosa" loading="lazy">
+            </a>
+            <figcaption>Lagoon and saltmarsh landscape</figcaption>
+          </figure>
+          <figure>
+            <a href="assets/ria-formosa-field-site-region.jpg" target="_blank" aria-label="Open full photograph from the Ria Formosa fieldwork region">
+              <img src="assets/ria-formosa-field-site-region.jpg" alt="Street art on a building near the Ria Formosa field site" loading="lazy">
+            </a>
+            <figcaption>Near the Ria Formosa field site</figcaption>
+          </figure>
+        </div>
+
+        <h3 class="field-gallery-title">Research cruises</h3>
+        <div class="field-gallery" aria-label="Photographs from research cruises and field work">
+          <figure class="portrait">
+            <a href="assets/Meteor2.jpg" target="_blank" aria-label="Open full photograph of Patricia Grasse with R/V Meteor">
+              <img src="assets/Meteor2.jpg" alt="Patricia Grasse standing in front of the research vessel Meteor" loading="lazy">
+            </a>
+            <figcaption>With R/V <i>Meteor</i></figcaption>
+          </figure>
+          <figure>
+            <a href="assets/Meteor1.jpg" target="_blank" aria-label="Open full photograph of the working deck aboard R/V Meteor">
+              <img src="assets/Meteor1.jpg" alt="Scientific working deck and cranes aboard R/V Meteor" loading="lazy">
+            </a>
+            <figcaption>Working deck aboard R/V <i>Meteor</i></figcaption>
+          </figure>
+          <figure>
+            <a href="assets/CTD.jpg" target="_blank" aria-label="Open full photograph of a CTD rosette at sea">
+              <img src="assets/CTD.jpg" alt="CTD rosette being deployed from a research vessel at sea" loading="lazy">
+            </a>
+            <figcaption>CTD deployment at sea</figcaption>
+          </figure>
+          <figure>
+            <a href="assets/Experiments.jpg" target="_blank" aria-label="Open full photograph of experimental equipment on deck">
+              <img src="assets/Experiments.jpg" alt="Experimental equipment prepared on the deck of a research vessel" loading="lazy">
+            </a>
+            <figcaption>Preparing experiments on deck</figcaption>
+          </figure>
+          <figure>
+            <a href="assets/Panama.jpg" target="_blank" aria-label="Open full photograph of Panama City">
+              <img src="assets/Panama.jpg" alt="Panoramic view of Panama City from the surrounding tropical vegetation" loading="lazy">
+            </a>
+            <figcaption>Panama during eastern tropical Pacific field work</figcaption>
+          </figure>
+        </div>
+
+        <h3 class="field-gallery-title">Peru mesocosm experiment</h3>
+        <div class="field-gallery mesocosm-gallery" aria-label="Photographs from the 2017 KOSMOS mesocosm experiment off Peru">
+          <figure class="wide">
+            <a href="assets/peru-mesocosm-coast.jpg" target="_blank" aria-label="Open full photograph of a KOSMOS mesocosm off the Peruvian coast">
+              <img src="assets/peru-mesocosm-coast.jpg" alt="KOSMOS mesocosm deployed in coastal waters off Peru" loading="lazy">
+            </a>
+            <figcaption>KOSMOS mesocosm off the Peruvian coast</figcaption>
+          </figure>
+          <figure>
+            <a href="assets/peru-mesocosm-sampling.jpg" target="_blank" aria-label="Open full photograph of sampling inside a mesocosm">
+              <img src="assets/peru-mesocosm-sampling.jpg" alt="Scientific sampling inside a KOSMOS mesocosm" loading="lazy">
+            </a>
+            <figcaption>Sampling inside a mesocosm</figcaption>
+          </figure>
+          <figure>
+            <a href="assets/peru-mesocosm-array.jpg" target="_blank" aria-label="Open full photograph of the mesocosm array">
+              <img src="assets/peru-mesocosm-array.jpg" alt="Multiple KOSMOS mesocosms deployed off Peru" loading="lazy">
+            </a>
+            <figcaption>Mesocosm array and sampling work</figcaption>
+          </figure>
+          <figure>
+            <a href="assets/peru-mesocosm-filtration.jpg" target="_blank" aria-label="Open full photograph of the filtration setup">
+              <img src="assets/peru-mesocosm-filtration.jpg" alt="Filtration setup used to process mesocosm samples" loading="lazy">
+            </a>
+            <figcaption>Processing samples by filtration</figcaption>
+          </figure>
+          <figure>
+            <a href="assets/peru-mesocosm-samples.jpg" target="_blank" aria-label="Open full photograph of mesocosm samples">
+              <img src="assets/peru-mesocosm-samples.jpg" alt="Sample containers from the Peru mesocosm experiment" loading="lazy">
+            </a>
+            <figcaption>Mesocosm samples</figcaption>
+          </figure>
+          <figure class="wide">
+            <a href="assets/peru-mesocosm-sunset.jpg" target="_blank" aria-label="Open full photograph of a mesocosm at sunset">
+              <img src="assets/peru-mesocosm-sunset.jpg" alt="KOSMOS mesocosm off Peru at sunset" loading="lazy">
+            </a>
+            <figcaption>Mesocosm experiment at sunset</figcaption>
+          </figure>
+        </div>
+
+        <h3 class="field-gallery-title">La Selva rainforest, Costa Rica</h3>
+        <div class="field-gallery" aria-label="Photographs from field work at La Selva Biological Station and Costa Rica">
+          <figure class="portrait">
+            <a href="assets/la-selva-fieldwork.jpg" target="_blank" aria-label="Open full photograph of rainforest field work at La Selva">
+              <img src="assets/la-selva-fieldwork.jpg" alt="Patricia Grasse conducting field work in the tropical rainforest at La Selva Biological Station" loading="lazy">
+            </a>
+            <figcaption>Field work at La Selva Biological Station</figcaption>
+          </figure>
+          <figure>
+            <a href="assets/la-selva-white-bats.jpg" target="_blank" aria-label="Open full photograph of Honduran white bats">
+              <img src="assets/la-selva-white-bats.jpg" alt="A group of Honduran white bats resting beneath a large green leaf" loading="lazy">
+            </a>
+            <figcaption>Honduran white bats (<i>Ectophylla alba</i>)</figcaption>
+          </figure>
+          <figure class="portrait">
+            <a href="assets/la-selva-vampire-bat.jpg" target="_blank" aria-label="Open full photograph of a common vampire bat">
+              <img src="assets/la-selva-vampire-bat.jpg" alt="Close-up of a common vampire bat during field research" loading="lazy">
+            </a>
+            <figcaption>Common vampire bat (<i>Desmodus rotundus</i>)</figcaption>
+          </figure>
+          <figure>
+            <a href="assets/costa-rica-caribbean-coast.jpg" target="_blank" aria-label="Open full photograph of the Caribbean coast of Costa Rica">
+              <img src="assets/costa-rica-caribbean-coast.jpg" alt="Waves breaking around a forested rock on the Caribbean coast of Costa Rica" loading="lazy">
+            </a>
+            <figcaption>Caribbean coast, Costa Rica</figcaption>
+          </figure>
         </div>
       </div>
     </section>
